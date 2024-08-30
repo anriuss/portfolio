@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { cn } from "~/lib/utils/cn";
+import { nav_links } from ".";
 import AnimatedBackground from "../animations/animation-background";
 import LinkAnimation from "../animations/animation-link";
-import { nav_links } from ".";
 
-interface Props { className?: string };
+interface Props {
+  className?: string;
+}
 
 export default function NavbarLinks({ className }: Props) {
   return (

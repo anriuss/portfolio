@@ -20,7 +20,7 @@ interface ChildProps {
   onClick?: () => void;
   "aria-selected"?: boolean;
   "data-checked"?: string;
-};
+}
 
 interface AnimatedBackgroundProps {
   children: ReactElement<ChildProps> | ReactElement<ChildProps>[];
@@ -29,7 +29,7 @@ interface AnimatedBackgroundProps {
   className?: string;
   transition?: Transition;
   enableHover?: boolean;
-};
+}
 
 export default function AnimatedBackground({
   children,
