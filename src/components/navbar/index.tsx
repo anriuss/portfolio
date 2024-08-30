@@ -3,7 +3,7 @@ import Link from "next/link";
 import logo from "~public/logo/logo.svg";
 import ContactButton from "../contact";
 import NavbarLinks from "./links";
-import NavbarMobileMenu from "./menu";
+import NavbarMobileMenu from "./mobile";
 
 export const nav_links = [
   { name: "About", href: "/#about" },
