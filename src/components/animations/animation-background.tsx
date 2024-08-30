@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { AnimatePresence, motion, type Transition } from "framer-motion";
-import {
+import React, {
   Children,
   cloneElement,
   type ReactElement,
@@ -13,10 +11,19 @@ import {
 } from "react";
 import { cn } from "~/lib/utils/cn";
 
-type AnimatedBackgroundProps = {
-  children:
-    | ReactElement<{ "data-id": string }>[]
-    | ReactElement<{ "data-id": string }>;
+interface ChildProps {
+  "data-id": string;
+  className?: string;
+  children: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  onClick?: () => void;
+  "aria-selected"?: boolean;
+  "data-checked"?: string;
+};
+
+interface AnimatedBackgroundProps {
+  children: ReactElement<ChildProps> | ReactElement<ChildProps>[];
   defaultValue?: string;
   onValueChange?: (newActiveId: string | null) => void;
   className?: string;
@@ -49,7 +56,11 @@ export default function AnimatedBackground({
     }
   }, [defaultValue]);
 
-  return Children.map(children, (child: any, index) => {
+  return Children.map(children, (child, index) => {
+    if (!React.isValidElement<ChildProps>(child)) {
+      return null;
+    }
+
     const id = child.props["data-id"];
 
     const interactionProps = enableHover
@@ -69,7 +80,7 @@ export default function AnimatedBackground({
         "aria-selected": activeId === id,
         "data-checked": activeId === id ? "true" : "false",
         ...interactionProps,
-      },
+      } as unknown as ChildProps,
       <>
         <AnimatePresence initial={false}>
           {activeId === id && (
