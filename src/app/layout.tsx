@@ -6,7 +6,7 @@ import { type Metadata } from "next";
 export const metadata: Metadata = {
   title: "Anri Vachnadze",
   description: "Mid-Level Full-stack developer from Georgia",
-  icons: [{ rel: "icon", url: "/logo.png" }],
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
   keywords: [
     "Front end developer",
     "Back end developer",
