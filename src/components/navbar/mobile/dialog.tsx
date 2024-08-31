@@ -30,16 +30,16 @@ export function NavbarMobileDialog() {
       animate="animate"
       exit="exit"
       transition={{ duration: 0.7, ease: "circOut" }}
-      className="fixed z-40 top-0 left-0 w-full px-4 pt-16 h-[100dvh] min-h-[600px] bg-foreground text-background"
+      className="fixed z-40 top-0 left-0 w-full px-4 pt-16 h-[100dvh] overflow-y-scroll bg-foreground text-background"
     >
-      <div className="relative size-full">
-        <div className="absolute top-12 flex flex-col gap-4">
+      <div className="flex flex-col justify-between gap-12 h-full py-12">
+        <div className="flex flex-col gap-4">
           {nav_links.map((link, index) => (
             <LinkIndexedAnimation key={link.name} link={link} index={index} />
           ))}
         </div>
 
-        <div className="absolute bottom-12 flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mt-auto">
           {social_links.map((link, index) => (
             <LinkIndexedAnimation
               key={link.name}
