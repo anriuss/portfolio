@@ -1,11 +1,7 @@
 import { cn } from "~/lib/utils/cn";
+import type { NavbarProps } from ".";
 
-interface Props {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export default function NavbarMobileButton({ isOpen, setIsOpen }: Props) {
+export default function NavbarMobileButton({ isOpen, setIsOpen }: NavbarProps) {
   const handleClick = () => {
     setIsOpen((prev) => !prev);
   };
