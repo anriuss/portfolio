@@ -3,11 +3,12 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Kanit } from "next/font/google";
 import Navbar from "~/components/navbar";
+import Providers from "~/lib/providers";
 
 export const metadata: Metadata = {
   title: "Anri Vachnadze",
   description: "Mid-Level Full-stack developer from Georgia",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/logo/favicon.ico" }],
   keywords: [
     "Front end developer",
     "Back end developer",
@@ -97,8 +98,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${KanitConfig.className}`}>
       <body>
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );

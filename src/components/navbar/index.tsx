@@ -1,8 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import logo from "~public/logo/logo.svg";
+"use client";
+
+import { useState } from "react";
 import ContactButton from "../contact";
 import NavbarLinks from "./links";
+import NavbarLogo from "./logo";
 import NavbarMobileMenu from "./mobile";
 
 export const nav_links = [
@@ -11,22 +12,14 @@ export const nav_links = [
 ];
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="sticky h-16 w-full border-b bg-background px-4 py-3 flex items-center justify-between z-40">
+    <header className="sticky top-0 h-16 w-full border-b bg-background px-4 py-3 flex items-center justify-between z-40">
       <NavbarLinks className="max-md:hidden" />
-      <Link
-        href="/"
-        className="max-md:fixed max-md:left-4 z-50 mix-blend-difference"
-      >
-        <Image
-          src={logo as unknown as string}
-          alt="Anri Vachnadze Logo"
-          width={76}
-          height={76}
-        />
-      </Link>
+      <NavbarLogo isOpen={isOpen} />
       <ContactButton className="max-md:hidden" />
-      <NavbarMobileMenu />
+      <NavbarMobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </header>
   );
 }

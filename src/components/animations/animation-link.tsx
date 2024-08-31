@@ -19,6 +19,7 @@ export default function LinkAnimation({ children, className }: Props) {
     before:left-0 after:left-0
     before:transition-transform after:transition-transform
     before:duration-300 after:duration-300
+    before:ease-smooth after:ease-smooth
     before:translate-y-0 after:translate-y-full
     group-hover:before:-translate-y-full group-hover:after:-translate-y-0
   `,

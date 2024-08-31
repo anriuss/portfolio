@@ -25,7 +25,7 @@ export default function NavbarLinks({ className }: Props) {
             key={link.name}
             data-id={link.name}
             href={link.href}
-            className="text-foreground hover:text-background transition-colors duration-300 px-4 py-2 group"
+            className="text-foreground hover:text-background transition-colors duration-300 ease-smooth px-4 py-2 group"
           >
             <LinkAnimation>{link.name}</LinkAnimation>
           </Link>

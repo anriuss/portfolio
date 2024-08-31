@@ -31,6 +31,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(.65,.07,.015,1)",
+      },
     },
   },
   plugins: [],
