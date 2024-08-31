@@ -89,7 +89,7 @@ export const metadata: Metadata = {
 
 const KanitConfig = Kanit({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "600"],
 });
 
 export default function RootLayout({

@@ -12,7 +12,9 @@ export default function NavbarMobileMenu({ isOpen, setIsOpen }: NavbarProps) {
   return (
     <div className="md:hidden">
       <NavbarMobileButton isOpen={isOpen} setIsOpen={setIsOpen} />
-      <AnimatePresence>{isOpen && <NavbarMobileDialog />}</AnimatePresence>
+      <AnimatePresence>
+        {isOpen && <NavbarMobileDialog key="dialog" />}
+      </AnimatePresence>
     </div>
   );
 }

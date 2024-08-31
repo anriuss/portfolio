@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 h-16 w-full border-b bg-background px-4 py-3 flex items-center justify-between z-40">
+    <header className="sticky top-0 h-16 w-full rounded-b-3xl border shadow-md bg-background px-4 py-3 flex items-center justify-between z-40">
       <NavbarLinks className="max-md:hidden" />
       <NavbarLogo isOpen={isOpen} />
       <ContactButton className="max-md:hidden" />
