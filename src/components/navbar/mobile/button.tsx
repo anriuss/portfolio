@@ -16,7 +16,7 @@ export default function NavbarMobileButton({ isOpen, setIsOpen }: Props) {
       onClick={handleClick}
     >
       <span className="sr-only">menu</span>
-      <div className="*:h-[5px] *:bg-background *:w-8 *:duration-300">
+      <div className="*:h-[5px] *:bg-background *:w-8 *:duration-300 *:ease-smooth">
         <div
           className={cn({
             "rotate-45 translate-y-1": isOpen,

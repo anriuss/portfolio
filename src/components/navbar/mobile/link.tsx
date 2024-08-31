@@ -10,7 +10,7 @@ interface Props {
 export default function LinkIndexedAnimation({ link, index }: Props) {
   return (
     <Link href={link.href} className="group text-background/60 flex gap-x-6">
-      <div className="relative flex size-fit overflow-hidden *:duration-300">
+      <div className="relative flex size-fit overflow-hidden *:duration-300 *:ease-smooth">
         <ArrowRight
           size={32}
           className="absolute -left-[1rem] top-1/2 -translate-y-1/2 -translate-x-full group-hover:translate-x-full"
