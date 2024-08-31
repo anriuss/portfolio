@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Kanit } from "next/font/google";
 import Navbar from "~/components/navbar";
+import Providers from "~/lib/providers";
 
 export const metadata: Metadata = {
   title: "Anri Vachnadze",
@@ -97,8 +98,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${KanitConfig.className}`}>
       <body>
-        <Navbar />
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
