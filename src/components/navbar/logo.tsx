@@ -35,8 +35,6 @@ export default function NavbarLogo({ isOpen }: Props) {
     setIsAnimated(!isOpen && previous !== undefined && previous < latest);
   });
 
-  const toggleAnimation = () => setIsAnimated((prev) => !prev);
-
   const variants: Record<string, Variants> = {
     nri: {
       hide: { opacity: 0 },
@@ -54,8 +52,14 @@ export default function NavbarLogo({ isOpen }: Props) {
 
   return (
     <button
-      onMouseEnter={toggleAnimation}
-      onMouseLeave={toggleAnimation}
+      onMouseEnter={() => {
+        if (isAnimated) setIsAnimated(false);
+      }}
+      onMouseLeave={() => {
+        if (scrollY.get() > 0) {
+          if (!isAnimated) setIsAnimated(true);
+        }
+      }}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="max-md:fixed max-md:left-0 z-50 mix-blend-difference flex relative"
     >

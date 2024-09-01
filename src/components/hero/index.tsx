@@ -1,36 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import TimezoneClock from "./clock";
 
 export default function Hero() {
   return (
-    <section className="max-w-screen-lg mx-auto px-4 py-16 h-[calc(100dvh-64px)]">
-      <h1 className="text-8xl">
-        <span className="text-2xl ml-1">Anri Vachnadze</span>
-        <br />
-        <span>Self-tought</span> <br />
-        <span>Full-stack developer</span> <br />
-      </h1>
-      <aside>
-        <span className="sr-only">Scroll down</span>
-        <div className="-ml-4 mt-12 *:-mt-12">
-          {[1, 2, 3].map((_, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.5,
-                ease: "circOut",
-                delay: 0.2 + index / 8,
-              }}
-            >
-              <ChevronDown size={100} />
-            </motion.div>
-          ))}
+    <section className=" mx-auto px-4 py-16 h-[calc(100dvh-64px)] flex max-md:flex-col justify-between gap-4">
+      <div className="flex items-start md:items-end">
+        <h1 className="block text-[10rem] md:text-[16rem] font-semibold leading-none">
+          Anri
+        </h1>
+      </div>
+      <div className="flex md:max-lg:flex-col gap-8">
+        <div>
+          <p className="text-2xl">Batumi, Georgia</p>
+          <TimezoneClock />
         </div>
-      </aside>
+        <div>
+          <p className="text-2xl">Available for work</p>
+          <time dateTime="2024-09-01" className="text-4xl font-semibold">
+            Sep &apos;1 2024
+          </time>
+        </div>
+      </div>
     </section>
   );
 }
