@@ -8,7 +8,10 @@ import Providers from "~/lib/providers";
 export const metadata: Metadata = {
   title: "Anri Vachnadze",
   description: "Mid-Level Full-stack developer from Georgia",
-  icons: [{ rel: "icon", url: "/logo/favicon.ico" }],
+  icons: [
+    { rel: "icon", url: "/logo/favicon.ico" },
+    { rel: "apple-touch-icon", url: "/logo/favicon.ico" },
+  ],
   keywords: [
     "Front end developer",
     "Back end developer",
@@ -69,7 +72,7 @@ export const metadata: Metadata = {
     siteName: "Anri Vachnadze | Portfolio",
     images: [
       {
-        url: "https://anrius.vercel.app/logo.png",
+        url: "https://anrius.vercel.app/logo/banner.jpg",
         width: 800,
         height: 600,
       },
@@ -80,7 +83,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Anri Vachnadze | Portfolio",
     description: "Mid-Level Full-stack developer from Georgia",
-    images: ["https://anrius.vercel.app/logo.png"],
+    images: ["https://anrius.vercel.app/logo/banner.jpg"],
     // TODO: Add creator and site when twitter account is created
     // creator: "@yourtwitter",
     // site: "@yourtwitter",
@@ -89,7 +92,7 @@ export const metadata: Metadata = {
 
 const KanitConfig = Kanit({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "600"],
 });
 
 export default function RootLayout({

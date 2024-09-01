@@ -10,6 +10,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
 import { useIsMounted, useMediaQuery } from "usehooks-ts";
+import { smooth } from "~/lib/utils/cubic-bezier";
 
 import A from "~public/logo/letters/A.svg";
 import I from "~public/logo/letters/I.svg";
@@ -17,9 +18,9 @@ import N from "~public/logo/letters/N.svg";
 import R from "~public/logo/letters/R.svg";
 import V from "~public/logo/letters/V.svg";
 
-type Props = {
+interface Props {
   isOpen: boolean;
-};
+}
 
 const LETTERS = [N, R, I];
 
@@ -35,27 +36,31 @@ export default function NavbarLogo({ isOpen }: Props) {
     setIsAnimated(!isOpen && previous !== undefined && previous < latest);
   });
 
-  const toggleAnimation = () => setIsAnimated((prev) => !prev);
-
   const variants: Record<string, Variants> = {
     nri: {
-      hide: { opacity: 0 },
-      show: { opacity: 1, x: "10px" },
+      hide: { x: -10, opacity: 0 },
+      show: { x: 10, opacity: 1 },
     },
     a: {
-      hide: { x: "10px" },
-      show: { x: isMobile ? "10px" : "50px" },
+      hide: { x: 10 },
+      show: { x: isMobile ? 5 : "61px" },
     },
     v: {
       hide: { x: 0, opacity: 0 },
-      show: { x: isMobile ? "-90px" : "-50px" },
+      show: { x: isMobile ? "-117px" : "-61px" },
     },
   };
 
   return (
     <button
-      onMouseEnter={toggleAnimation}
-      onMouseLeave={toggleAnimation}
+      onMouseEnter={() => {
+        if (isAnimated) setIsAnimated(false);
+      }}
+      onMouseLeave={() => {
+        if (scrollY.get() > 0) {
+          if (!isAnimated) setIsAnimated(true);
+        }
+      }}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       className="max-md:fixed max-md:left-0 z-50 mix-blend-difference flex relative"
     >
@@ -63,7 +68,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="A"
         variants={variants.a}
         animate={isAnimated ? "show" : "hide"}
-        transition={{ ease: "circInOut" }}
+        transition={{ ease: smooth, duration: 0.8 }}
       >
         <Image src={A} alt="A" className="h-8 max-w-14" />
       </motion.div>
@@ -71,7 +76,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="NRI"
         variants={variants.nri}
         animate={isAnimated ? "hide" : "show"}
-        transition={{ ease: "circInOut" }}
+        transition={{ ease: smooth, duration: 0.8 }}
         className="flex ml-0.5 mr-0.5"
       >
         {LETTERS.map((Letter, index) => (
@@ -79,7 +84,7 @@ export default function NavbarLogo({ isOpen }: Props) {
             key={index}
             src={Letter}
             alt={`Letter ${index + 1}`}
-            className="h-8 max-w-14 -ml-5 mr-0.5"
+            className="h-8 max-w-14 -ml-3 mr-0.5"
           />
         ))}
       </motion.div>
@@ -88,7 +93,10 @@ export default function NavbarLogo({ isOpen }: Props) {
           key="V"
           variants={variants.v}
           animate={isAnimated ? "show" : "hide"}
-          transition={{ ease: "circInOut" }}
+          transition={{
+            ease: smooth,
+            duration: 0.8,
+          }}
         >
           <Image src={V} alt="V" className="h-8 max-w-14 -ml-5" />
         </motion.div>
