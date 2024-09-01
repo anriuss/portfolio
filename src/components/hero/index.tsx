@@ -1,18 +1,9 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { smooth } from "~/lib/utils/cubic-bezier";
+import { motion } from "framer-motion";
+import { smooth } from "~/lib/constants/cubic-bezier";
+import { followUpVariant } from "~/lib/constants/variants";
 import HeroWidgets from "./widgets";
-
-export const followUpVariant: Variants = {
-  initial: { y: "100%" },
-  animate: { y: 0 },
-};
-
-export const fadeInVariant: Variants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-};
 
 export default function Hero() {
   return (

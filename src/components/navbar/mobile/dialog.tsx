@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { social_links } from "~/components/about";
-import { nav_links } from "..";
+import { nav_links, social_links } from "~/lib/constants/links";
 import LinkIndexedAnimation from "./link";
 
 const variants_fade_in: Variants = {

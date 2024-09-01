@@ -1,12 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { social_links } from "~/lib/constants/links";
 import LinkAnimation from "../animations/animation-link";
-
-export const social_links = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/anri-vachnadze/" },
-  { name: "GitHub", href: "https://github.com/MrAnri29" },
-  { name: "Email", href: "mailto:mr.anriko29@gmail.com" },
-];
 
 export default function About() {
   return (

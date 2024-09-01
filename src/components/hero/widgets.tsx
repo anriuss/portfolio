@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import React from "react";
-import { smooth } from "~/lib/utils/cubic-bezier";
-import { fadeInVariant, followUpVariant } from ".";
+import { smooth } from "~/lib/constants/cubic-bezier";
+import { fadeInVariant, followUpVariant } from "~/lib/constants/variants";
 import TimezoneClock from "./clock";
 
 interface AnimatedTextProps {

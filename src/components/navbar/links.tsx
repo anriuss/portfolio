@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { nav_links } from "~/lib/constants/links";
 import { cn } from "~/lib/utils/cn";
-import { nav_links } from ".";
 import AnimatedBackground from "../animations/animation-background";
 import LinkAnimation from "../animations/animation-link";
 

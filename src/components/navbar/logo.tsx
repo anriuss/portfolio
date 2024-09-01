@@ -10,7 +10,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
 import { useIsMounted, useMediaQuery } from "usehooks-ts";
-import { smooth } from "~/lib/utils/cubic-bezier";
+import { smooth } from "~/lib/constants/cubic-bezier";
 
 import A from "~public/logo/letters/A.svg";
 import I from "~public/logo/letters/I.svg";
