@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  cubicBezier,
   motion,
   useMotionValueEvent,
   useScroll,
@@ -11,6 +10,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useState } from "react";
 import { useIsMounted, useMediaQuery } from "usehooks-ts";
+import { smooth } from "~/lib/utils/cubic-bezier";
 
 import A from "~public/logo/letters/A.svg";
 import I from "~public/logo/letters/I.svg";
@@ -18,9 +18,9 @@ import N from "~public/logo/letters/N.svg";
 import R from "~public/logo/letters/R.svg";
 import V from "~public/logo/letters/V.svg";
 
-type Props = {
+interface Props {
   isOpen: boolean;
-};
+}
 
 const LETTERS = [N, R, I];
 
@@ -43,11 +43,11 @@ export default function NavbarLogo({ isOpen }: Props) {
     },
     a: {
       hide: { x: 10 },
-      show: { x: isMobile ? 5 : "62px" },
+      show: { x: isMobile ? 5 : "61px" },
     },
     v: {
       hide: { x: 0, opacity: 0 },
-      show: { x: isMobile ? "-117px" : "-62px" },
+      show: { x: isMobile ? "-117px" : "-61px" },
     },
   };
 
@@ -68,7 +68,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="A"
         variants={variants.a}
         animate={isAnimated ? "show" : "hide"}
-        transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
+        transition={{ ease: smooth, duration: 0.8 }}
       >
         <Image src={A} alt="A" className="h-8 max-w-14" />
       </motion.div>
@@ -76,7 +76,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="NRI"
         variants={variants.nri}
         animate={isAnimated ? "hide" : "show"}
-        transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
+        transition={{ ease: smooth, duration: 0.8 }}
         className="flex ml-0.5 mr-0.5"
       >
         {LETTERS.map((Letter, index) => (
@@ -93,7 +93,10 @@ export default function NavbarLogo({ isOpen }: Props) {
           key="V"
           variants={variants.v}
           animate={isAnimated ? "show" : "hide"}
-          transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
+          transition={{
+            ease: smooth,
+            duration: 0.8,
+          }}
         >
           <Image src={V} alt="V" className="h-8 max-w-14 -ml-5" />
         </motion.div>
