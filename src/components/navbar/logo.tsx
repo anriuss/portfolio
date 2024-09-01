@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  cubicBezier,
   motion,
   useMotionValueEvent,
   useScroll,
@@ -37,16 +38,16 @@ export default function NavbarLogo({ isOpen }: Props) {
 
   const variants: Record<string, Variants> = {
     nri: {
-      hide: { opacity: 0 },
-      show: { opacity: 1, x: "10px" },
+      hide: { x: -10, opacity: 0 },
+      show: { x: 10, opacity: 1 },
     },
     a: {
-      hide: { x: "10px" },
-      show: { x: isMobile ? "10px" : "50px" },
+      hide: { x: 10 },
+      show: { x: isMobile ? 5 : "62px" },
     },
     v: {
       hide: { x: 0, opacity: 0 },
-      show: { x: isMobile ? "-90px" : "-50px" },
+      show: { x: isMobile ? "-117px" : "-62px" },
     },
   };
 
@@ -67,7 +68,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="A"
         variants={variants.a}
         animate={isAnimated ? "show" : "hide"}
-        transition={{ ease: "circInOut" }}
+        transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
       >
         <Image src={A} alt="A" className="h-8 max-w-14" />
       </motion.div>
@@ -75,7 +76,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         key="NRI"
         variants={variants.nri}
         animate={isAnimated ? "hide" : "show"}
-        transition={{ ease: "circInOut" }}
+        transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
         className="flex ml-0.5 mr-0.5"
       >
         {LETTERS.map((Letter, index) => (
@@ -83,7 +84,7 @@ export default function NavbarLogo({ isOpen }: Props) {
             key={index}
             src={Letter}
             alt={`Letter ${index + 1}`}
-            className="h-8 max-w-14 -ml-5 mr-0.5"
+            className="h-8 max-w-14 -ml-3 mr-0.5"
           />
         ))}
       </motion.div>
@@ -92,7 +93,7 @@ export default function NavbarLogo({ isOpen }: Props) {
           key="V"
           variants={variants.v}
           animate={isAnimated ? "show" : "hide"}
-          transition={{ ease: "circInOut" }}
+          transition={{ ease: cubicBezier(0.22, 1.1, 0.36, 1), duration: 0.8 }}
         >
           <Image src={V} alt="V" className="h-8 max-w-14 -ml-5" />
         </motion.div>
