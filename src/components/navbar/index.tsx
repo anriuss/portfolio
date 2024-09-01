@@ -1,22 +1,13 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
-import { smooth } from "~/lib/utils/cubic-bezier";
+import { smooth } from "~/lib/constants/cubic-bezier";
+import { followDownVariant } from "~/lib/constants/variants";
 import ContactButton from "../contact";
 import NavbarLinks from "./links";
 import NavbarLogo from "./logo";
 import NavbarMobileMenu from "./mobile";
-
-export const nav_links = [
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/#projects" },
-];
-
-export const followDownVariant: Variants = {
-  initial: { y: "-100%" },
-  animate: { y: 0 },
-};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import React from "react";
-import { smooth } from "~/lib/utils/cubic-bezier";
-import { fadeInVariant, followUpVariant } from ".";
+import { smooth } from "~/lib/constants/cubic-bezier";
+import { fadeInVariant, followUpVariant } from "~/lib/constants/variants";
 import TimezoneClock from "./clock";
 
 interface AnimatedTextProps {
@@ -19,7 +19,7 @@ function AnimatedText({ children, delay = 0 }: AnimatedTextProps) {
         initial="initial"
         animate="animate"
         transition={{ duration: 0.5, ease: smooth, delay }}
-        className="text-2xl"
+        className="text-2xl whitespace-nowrap"
       >
         {children}
       </motion.p>
@@ -69,7 +69,7 @@ function InfoBlock({ text, content, contentDelay = 1.3 }: InfoBlockProps) {
 
 export default function HeroWidgets() {
   return (
-    <div className="flex md:max-lg:flex-col gap-8 overflow-hidden">
+    <div className="flex max-[450px]:flex-col md:max-lg:flex-col gap-8 overflow-hidden">
       <InfoBlock text="Batumi, Georgia" content={<TimezoneClock />} />
       <InfoBlock
         text="Available for work"
