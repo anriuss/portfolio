@@ -14,7 +14,10 @@ export default function About() {
         create projects that are intuitive and responsive to user needs.
       </p>
       <hr className="border w-full mt-16 my-8" />
-      <div className="text-2xl flex max-lg:flex-col justify-between gap-12">
+      <div
+        id="contact"
+        className="text-2xl flex max-lg:flex-col justify-between gap-12"
+      >
         <div>
           <p className="italic text-xl">Here are my socials 👋🏼</p>
           <div className="flex flex-col gap-y-2 mt-12">
