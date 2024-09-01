@@ -16,7 +16,7 @@ export const fadeInVariant: Variants = {
 
 export default function Hero() {
   return (
-    <section className="mx-auto px-4 py-16 h-[calc(100dvh-64px)] flex max-md:flex-col justify-between gap-4">
+    <section className="mx-auto px-4 md:px-8 py-16 h-[calc(100dvh-64px)] flex max-md:flex-col justify-between gap-4">
       <div className="flex items-start md:items-end">
         <div className="block text-[10rem] md:text-[16rem] font-semibold leading-none overflow-hidden indent-0">
           <motion.h1

@@ -1,14 +1,9 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { social_links } from "~/components/about";
 import { nav_links } from "..";
 import LinkIndexedAnimation from "./link";
-
-const social_links = [
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/anri-vachnadze/" },
-  { name: "GitHub", href: "https://github.com/MrAnri29" },
-  { name: "Email", href: "mailto:mr.anriko29@gmail.com" },
-];
 
 const variants_fade_in: Variants = {
   initial: {
