@@ -10,7 +10,7 @@ export interface NavbarProps {
 
 export default function NavbarMobileMenu({ isOpen, setIsOpen }: NavbarProps) {
   return (
-    <div className="md:hidden">
+    <div className="md:hidden" data-lenis-prevent>
       <NavbarMobileButton isOpen={isOpen} setIsOpen={setIsOpen} />
       <AnimatePresence>
         {isOpen && <NavbarMobileDialog key="dialog" />}
