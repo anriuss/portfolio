@@ -62,7 +62,7 @@ export default function NavbarLogo({ isOpen }: Props) {
         }
       }}
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="max-md:fixed max-md:left-0 z-50 mix-blend-difference flex relative"
+      className="max-md:fixed max-md:top-4 max-md:left-0 z-50 mix-blend-difference flex relative"
     >
       <motion.div
         key="A"
