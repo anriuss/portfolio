@@ -11,7 +11,7 @@ import AnimateParagraph from "../../animations/animation-paragraph";
 
 export default function About() {
   return (
-    <section id="about" className="flex flex-col justify-center font-semibold">
+    <main id="about" className="flex flex-col justify-center font-semibold">
       <p className="block text-4xl md:text-6xl">
         <AnimateParagraph single_delay={0.1} duration={1}>
           I emphasize the importance of user experience in my work, aiming to
@@ -25,10 +25,7 @@ export default function About() {
         viewport={{ once: true }}
         className="border mt-16 my-8"
       />
-      <div
-        id="contact"
-        className="text-2xl flex max-lg:flex-col justify-between gap-12"
-      >
+      <div className="text-2xl flex max-lg:flex-col justify-between gap-12">
         <div>
           <p className="italic text-xl">
             <AnimateParagraph single_delay={0.5}>
@@ -81,6 +78,6 @@ export default function About() {
           </AnimateParagraph>
         </p>
       </div>
-    </section>
+    </main>
   );
 }
