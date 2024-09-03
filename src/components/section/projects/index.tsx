@@ -3,11 +3,15 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { projects } from "~/lib/constants/projects";
+import { cn } from "~/lib/utils/cn";
 import LinkAnimation from "../../animations/animation-link";
 
 export default function Projects() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="projects">
       {projects.map((project, x) => {
@@ -21,7 +25,14 @@ export default function Projects() {
             >
               <Link
                 href={project.href}
-                className="group grid grid-cols-12 font-extrabold max-md:my-4 space-y-8 md:space-y-12"
+                className={cn(
+                  "group grid grid-cols-12 font-extrabold max-md:my-4 space-y-8 md:space-y-12 transition-opacity duration-300",
+                  {
+                    "opacity-50": hoveredIndex !== null && hoveredIndex !== x,
+                  },
+                )}
+                onMouseEnter={() => setHoveredIndex(x)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="hidden col-span-1 mt-12 relative lg:flex size-fit overflow-hidden font-semibold *:duration-300 *:ease-smooth">
                   <ArrowRight
