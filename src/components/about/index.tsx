@@ -2,18 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { social_links } from "~/lib/constants/links";
 import { fadeInVariant } from "~/lib/constants/variants";
+import { cn } from "~/lib/utils/cn";
 import LinkAnimation from "../animations/animation-link";
 import AnimateParagraph from "../animations/animation-paragraph";
+
+const font = Playfair_Display({ subsets: ["latin"], weight: ["700"] });
 
 export default function About() {
   return (
     <section
       id="about"
-      className="px-4 md:px-8 py-16 container min-h-[100dvh] flex flex-col justify-center rounded-xl bg-foreground text-background"
+      className={cn(
+        "px-4 md:px-8 py-16 container min-h-[100dvh] flex flex-col justify-center rounded-xl bg-foreground text-background",
+        font.className,
+      )}
     >
       <p className="block text-4xl md:text-6xl">
         <AnimateParagraph>
