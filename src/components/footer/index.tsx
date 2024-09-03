@@ -21,7 +21,11 @@ export default function Footer() {
   const y = useTransform(scrollYProgress, [0, 1], ["-50dvh", "0dvh"]);
 
   return (
-    <motion.footer ref={footer} style={{ y }}>
+    <motion.footer
+      ref={footer}
+      style={{ y }}
+      className="bg-background text-foreground"
+    >
       <aside
         id="contact"
         className="px-4 md:px-8 text-2xl flex max-sm:flex-col gap-4 sm:items-end justify-between"
