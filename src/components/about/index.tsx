@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
@@ -14,11 +14,16 @@ import AnimateParagraph from "../animations/animation-paragraph";
 const font = Playfair_Display({ subsets: ["latin"], weight: ["700"] });
 
 export default function About() {
+  const { scrollY } = useScroll();
+
+  const y = useTransform(scrollY, [0, 300], [0, -100]);
+
   return (
-    <section
+    <motion.section
       id="about"
+      style={{ y }}
       className={cn(
-        "px-4 md:px-8 py-16 container min-h-[100dvh] flex flex-col justify-center rounded-xl bg-foreground text-background",
+        "px-4 md:px-8 py-16 container min-h-[100dvh] flex flex-col justify-center rounded-3xl bg-foreground text-background",
         font.className,
       )}
     >
@@ -85,6 +90,6 @@ export default function About() {
           </AnimateParagraph>
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 }
