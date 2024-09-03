@@ -22,7 +22,7 @@ export default function LinkIndexedAnimation({ link, index }: Props) {
           [0{index + 1}]
         </p>
       </div>
-      <LinkAnimation className="before:-top-2 after:-top-2 font-bold text-5xl sm:text-7xl">
+      <LinkAnimation className="before:-top-2 after:-top-2 font-semibold text-5xl sm:text-7xl">
         {link.name}
       </LinkAnimation>
     </Link>

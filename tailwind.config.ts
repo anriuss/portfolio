@@ -12,7 +12,9 @@ const config: Config = {
     container: {
       center: true,
       screens: {
+        xs: "480px",
         "2xl": "1680px",
+        "3xl": "2200px",
       },
     },
     extend: {
@@ -32,6 +34,11 @@ const config: Config = {
       },
       transitionTimingFunction: {
         smooth: "cubic-bezier(.65,.07,.015,1)",
+      },
+      screens: {
+        xs: "480px",
+        "2xl": "1680px",
+        "3xl": "2200px",
       },
     },
   },

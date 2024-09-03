@@ -6,45 +6,46 @@ import { smooth } from "~/lib/constants/cubic-bezier";
 import { followUpVariant } from "~/lib/constants/variants";
 
 interface Props extends PropsWithChildren {
+  single_delay?: number;
   delay?: number;
-  all?: boolean; // If true all words will be animated at once
-  line?: boolean;
+  duration?: number;
 }
 
 export default function AnimateParagraph({
   children,
+  single_delay,
   delay,
-  all,
-  line,
+  duration = 0.5,
 }: Props) {
-  const words = all
-    ? [children]
-    : line
-      ? children?.toString().split("&n")
-      : children?.toString().split(" ");
-
   return (
     <>
-      {words?.map((child, x) => (
-        <span
-          key={x}
-          className="inline-flex overflow-hidden pb-[0.1em] indent-0"
-        >
-          <motion.span
-            variants={followUpVariant}
-            initial="initial"
-            whileInView="animate"
-            transition={{
-              duration: 0.5,
-              ease: smooth,
-              delay: delay ? 0.1 * x + delay : 0.1 * x,
-            }}
-            viewport={{ once: true }}
+      {children
+        ?.toString()
+        .split(" ")
+        .map((child, x) => (
+          <span
+            key={x}
+            className="inline-flex overflow-hidden pb-[0.1em] indent-0"
           >
-            {child}&nbsp;
-          </motion.span>
-        </span>
-      ))}
+            <motion.span
+              variants={followUpVariant}
+              initial="initial"
+              whileInView="animate"
+              transition={{
+                duration,
+                ease: smooth,
+                delay: single_delay
+                  ? single_delay
+                  : delay
+                    ? 0.1 * x + delay
+                    : 0.1 * x,
+              }}
+              viewport={{ once: true }}
+            >
+              {child}&nbsp;
+            </motion.span>
+          </span>
+        ))}
     </>
   );
 }
