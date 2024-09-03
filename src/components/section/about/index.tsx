@@ -1,46 +1,37 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { social_links } from "~/lib/constants/links";
 import { fadeInVariant } from "~/lib/constants/variants";
-import { cn } from "~/lib/utils/cn";
-import LinkAnimation from "../animations/animation-link";
-import AnimateParagraph from "../animations/animation-paragraph";
-
-const font = Playfair_Display({ subsets: ["latin"], weight: ["700"] });
+import LinkAnimation from "../../animations/animation-link";
+import AnimateParagraph from "../../animations/animation-paragraph";
 
 export default function About() {
-  const { scrollY } = useScroll();
-
-  const y = useTransform(scrollY, [0, 300], [0, -100]);
-
   return (
-    <motion.section
-      id="about"
-      style={{ y }}
-      className={cn(
-        "px-4 md:px-8 py-16 container min-h-[100dvh] flex flex-col justify-center rounded-3xl bg-foreground text-background",
-        font.className,
-      )}
-    >
+    <section id="about" className="flex flex-col justify-center font-semibold">
       <p className="block text-4xl md:text-6xl">
-        <AnimateParagraph>
+        <AnimateParagraph single_delay={0.1} duration={1}>
           I emphasize the importance of user experience in my work, aiming to
           create projects that are intuitive and responsive to user needs.
         </AnimateParagraph>
       </p>
-      <hr className="border w-full mt-16 my-8" />
+      <motion.hr
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        transition={{ duration: 1, ease: smooth }}
+        viewport={{ once: true }}
+        className="border mt-16 my-8"
+      />
       <div
         id="contact"
         className="text-2xl flex max-lg:flex-col justify-between gap-12"
       >
         <div>
           <p className="italic text-xl">
-            <AnimateParagraph all={true} delay={0.5}>
+            <AnimateParagraph single_delay={0.5}>
               Here are my socials 👋🏼
             </AnimateParagraph>
           </p>
@@ -73,23 +64,23 @@ export default function About() {
           </motion.div>
         </div>
         <p className="lg:max-w-3xl">
-          <AnimateParagraph delay={1.2} line>
-            I&apos;m a 17-year-old enthusiastic full-stack web developer &n
+          <AnimateParagraph single_delay={0.7} duration={1}>
+            I&apos;m a 17-year-old enthusiastic full-stack web developer
             dedicated to turning ideas into creative solutions. I create dynamic
-            &n and responsive web applications using Next.js, Tailwind CSS, and
-            &n other modern technologies.
+            and responsive web applications using Next.js, Tailwind CSS, and
+            other modern technologies.
           </AnimateParagraph>
           <br />
           <br />
-          <AnimateParagraph delay={1.5} line>
+          <AnimateParagraph single_delay={0.7} duration={1}>
             I&apos;m involved in every step of the process: from discovery and
-            &n development to deployment. I focus on delivering high-quality, &n
+            development to deployment. I focus on delivering high-quality,
             scalable results that stimulate positive user interactions. While I
-            &n prioritize development, I also recognize the vital role of
-            design, &n particularly UI/UX, in achieving effective solutions.
+            prioritize development, I also recognize the vital role of design,
+            particularly UI/UX, in achieving effective solutions.
           </AnimateParagraph>
         </p>
       </div>
-    </motion.section>
+    </section>
   );
 }

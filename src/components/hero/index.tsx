@@ -8,14 +8,14 @@ import HeroWidgets from "./widgets";
 export default function Hero() {
   const { scrollY } = useScroll();
 
-  const y = useTransform(scrollY, [0, 700], [0, 100]);
+  const y = useTransform(scrollY, [0, 700], [0, 300]);
 
   return (
     <motion.section
       style={{ y }}
       className="mx-auto px-4 md:px-8 py-16 h-[calc(100dvh-64px)] flex max-md:flex-col justify-between gap-4"
     >
-      <div className="md:h-full md:flex md:items-end text-8xl min-[450px]:text-[10rem] md:text-[16rem] font-semibold leading-none overflow-hidden indent-0">
+      <div className="md:h-full md:flex md:items-end text-8xl xs:text-[10rem] md:text-[16rem] font-semibold leading-none overflow-hidden indent-0">
         <motion.h1
           variants={followUpVariant}
           initial="initial"
