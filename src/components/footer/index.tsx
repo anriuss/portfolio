@@ -1,18 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { social_links } from "~/lib/constants/links";
 
 import { ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
 import ANRI from "~public/logo/ANRI.svg";
 import LinkAnimation from "../animations/animation-link";
 
 export default function Footer() {
+  const footer = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: footer,
+    offset: ["start end", "end end"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-50dvh", "0dvh"]);
+
   return (
-    <footer className="">
+    <motion.footer ref={footer} style={{ y }}>
       <aside
         id="contact"
         className="px-4 md:px-8 text-2xl flex max-sm:flex-col gap-4 sm:items-end justify-between"
@@ -38,9 +47,9 @@ export default function Footer() {
             key={x}
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
-            transition={{ duration: 1, ease: smooth, delay: 0.15 * x }}
+            transition={{ duration: 1, ease: smooth, delay: 0.05 * x + 1 }}
             viewport={{ once: true }}
-            className="border my-3"
+            className="border my-3 md:my-4"
           />
         );
       })}
@@ -49,6 +58,6 @@ export default function Footer() {
         alt="ANRI"
         className="w-full p-4 mix-blend-difference"
       />
-    </footer>
+    </motion.footer>
   );
 }

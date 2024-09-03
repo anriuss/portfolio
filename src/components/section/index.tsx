@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import { useRef } from "react";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { cn } from "~/lib/utils/cn";
 import About from "./about";
@@ -13,15 +14,25 @@ const font = Playfair_Display({
 });
 
 export default function DarkSection() {
-  const { scrollY } = useScroll();
+  const section = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: startScrollYProgress } = useScroll({
+    target: section,
+    offset: ["start end", "end start"],
+  });
+  const { scrollYProgress: endScrollYProgress } = useScroll({
+    target: section,
+    offset: ["110% end", "end start"],
+  });
 
-  const y = useTransform(scrollY, [0, 300], [0, -100]);
+  const y = useTransform(startScrollYProgress, [0, 0.3], [0, -100]);
+  const scale = useTransform(endScrollYProgress, [0, 1], [1, 0.95]);
 
   return (
     <motion.div
-      style={{ y }}
+      ref={section}
+      style={{ y, scale }}
       className={cn(
-        "rounded-3xl bg-foreground text-background px-4 md:px-8 py-16",
+        "rounded-3xl bg-foreground text-background px-4 md:px-8 py-16 relative z-10",
         font.className,
       )}
     >
