@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     "Creativity",
     "Adaptability",
   ],
-  authors: [{ name: "MrAnri29", url: "https://anrius.vercel.app" }],
-  creator: "MrAnri29",
-  publisher: "MrAnri29",
+  authors: [{ name: "anriuss", url: "https://anrius.vercel.app" }],
+  creator: "anriuss",
+  publisher: "anriuss",
   robots: {
     index: true,
     follow: true,
