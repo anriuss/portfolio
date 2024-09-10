@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
 import { Kanit } from "next/font/google";
 import Footer from "~/components/footer";
@@ -102,6 +104,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${KanitConfig.className}`}>
       <body>
+        <Analytics />
+        <SpeedInsights />
         <Providers>
           <Navbar />
           {children}
