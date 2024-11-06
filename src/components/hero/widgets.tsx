@@ -69,7 +69,7 @@ function InfoBlock({ text, content, contentDelay = 1.3 }: InfoBlockProps) {
 
 export default function HeroWidgets() {
   return (
-    <div className="flex max-[450px]:flex-col md:max-lg:flex-col gap-8 overflow-hidden">
+    <div className="absolute max-md:bottom-4 max-md:left-4 md:right-8 flex max-[450px]:flex-col gap-8 overflow-hidden">
       <InfoBlock text="Batumi, Georgia" content={<TimezoneClock />} />
       <InfoBlock
         text="Available for work"

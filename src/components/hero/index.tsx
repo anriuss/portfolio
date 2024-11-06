@@ -21,14 +21,14 @@ export default function Hero() {
       style={{ y }}
       className="mx-auto px-4 md:px-8 py-16 h-[calc(100dvh-64px)] flex max-md:flex-col justify-between gap-4"
     >
-      <div className="md:h-full md:flex md:items-end text-8xl min-[450px]:text-[10rem] md:text-[16rem] font-semibold leading-none overflow-hidden indent-0">
+      <div className="absolute left-4 md:bottom-8 md:left-8 text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-semibold leading-none overflow-hidden indent-0">
         <motion.h1
           variants={followUpVariant}
           initial="initial"
           animate="animate"
           transition={{ duration: 0.5, ease: smooth }}
         >
-          Anri
+          Full-Stack <br /> web developer
         </motion.h1>
       </div>
       <HeroWidgets />

@@ -11,6 +11,8 @@ export const smoothScroll = (
   e: React.MouseEvent<HTMLAnchorElement>,
   link: { name: string; href: string },
   lenis: Lenis | undefined,
+  offset?: number,
+  duration?: number,
 ) => {
   e.preventDefault();
   e.stopPropagation();
@@ -19,8 +21,8 @@ export const smoothScroll = (
 
   if (targetElement) {
     lenis?.scrollTo(`#${link.name.toLowerCase()}`, {
-      offset: -80,
-      duration: 0.7,
+      offset: offset ?? -80,
+      duration: duration ?? 0.7,
       easing: customScrollEase,
       immediate: false,
     });
