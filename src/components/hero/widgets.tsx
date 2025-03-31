@@ -72,7 +72,7 @@ export default function HeroWidgets() {
     <div className="absolute max-md:bottom-4 max-md:left-4 md:right-8 flex max-[450px]:flex-col gap-8 overflow-hidden">
       <InfoBlock text="Batumi, Georgia" content={<TimezoneClock />} />
       <InfoBlock
-        text="Available for work"
+        text="Available for work from"
         content={
           <time dateTime="2025-04-01" className="text-4xl font-semibold">
             Apr &apos;1 2025
