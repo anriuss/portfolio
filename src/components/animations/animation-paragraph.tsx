@@ -19,10 +19,8 @@ export default function AnimateParagraph({
 }: Props) {
   return (
     <>
-      {children
-        ?.toString()
-        .split(" ")
-        .map((child, x) => (
+      {typeof children === "string" &&
+        children.split(" ").map((child, x) => (
           <span
             key={x}
             className="inline-flex overflow-hidden pb-[0.1em] indent-0"
@@ -34,11 +32,7 @@ export default function AnimateParagraph({
               transition={{
                 duration,
                 ease: smooth,
-                delay: single_delay
-                  ? single_delay
-                  : delay
-                    ? 0.1 * x + delay
-                    : 0.1 * x,
+                delay: single_delay ?? (delay ? 0.1 * x + delay : 0.1 * x),
               }}
               viewport={{ once: true }}
             >
