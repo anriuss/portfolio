@@ -62,10 +62,10 @@ export default function About() {
         </div>
         <p className="lg:max-w-3xl">
           <AnimateParagraph single_delay={0.7} duration={1}>
-            I&apos;m a 17-year-old enthusiastic full-stack web developer
-            dedicated to turning ideas into creative solutions. I create dynamic
-            and responsive web applications using Next.js, Tailwind CSS, and
-            other modern technologies.
+            I&apos;m enthusiastic full-stack web developer dedicated to turning
+            ideas into creative solutions. I create dynamic and responsive web
+            applications using Next.js, Tailwind CSS, and other modern
+            technologies.
           </AnimateParagraph>
           <br />
           <br />
