@@ -74,8 +74,8 @@ export default function HeroWidgets() {
       <InfoBlock
         text="Available for work"
         content={
-          <time dateTime="2024-09-01" className="text-4xl font-semibold">
-            Sep &apos;1 2024
+          <time dateTime="2025-04-01" className="text-4xl font-semibold">
+            Apr &apos;1 2025
           </time>
         }
       />
