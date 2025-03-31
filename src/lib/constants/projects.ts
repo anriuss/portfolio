@@ -7,24 +7,23 @@ export const projects = [
     image: "/previews/portfolio.jpeg",
   },
   {
-    name: "Swaip",
+    name: "Frag",
     description:
-      "Swaip is the first ever AI-Powered dex which helps you to invest in your chosen tokens wisely by evaluating its fundamentals",
-    href: "https://app.swaip.org/",
-    image: "/previews/swaip.jpeg",
+      "A project made for Croissant Software MB. It's a biolink app like linktree but focused on different community.",
+    href: "https://frag.bio/",
+    image: "/previews/frag.jpeg",
   },
   {
-    name: "Cryptub",
-    description:
-      "Cryptub is a platform to help users find the best cryptocurrency investment opportunities.",
-    href: "https://cryptub.io/",
-    image: "/previews/cryptub.jpeg",
+    name: "Croissant",
+    description: "Official website for Croissant Software MB.",
+    href: "https://croissant.software/",
+    image: "/previews/croissant.jpeg",
   },
   {
-    name: "Quantum",
+    name: "CureSpy",
     description:
-      "Platform for showcasing services of Forex trading mentor called Quantum.",
-    href: "https://quantum-mentorship.com/",
-    image: "/previews/quantum.jpeg",
+      "* Comming Soon * Website that tracks clinical trials and notifies you about changes.",
+    href: "https://curespy.com/",
+    image: "/previews/curespy.jpeg",
   },
 ];

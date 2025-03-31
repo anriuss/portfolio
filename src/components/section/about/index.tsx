@@ -76,6 +76,12 @@ export default function About() {
             prioritize development, I also recognize the vital role of design,
             particularly UI/UX, in achieving effective solutions.
           </AnimateParagraph>
+          <br />
+          <br />
+          <AnimateParagraph single_delay={0.7} duration={1}>
+            * All the projects listed below were solely developed by me, either
+            for personal use or for a specific company.
+          </AnimateParagraph>
         </p>
       </div>
     </main>

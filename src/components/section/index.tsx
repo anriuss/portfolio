@@ -8,10 +8,7 @@ import { cn } from "~/lib/utils/cn";
 import About from "./about";
 import Projects from "./projects";
 
-const font = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["600", "800"],
-});
+const font = Playfair_Display({ subsets: ["latin"], weight: ["600", "800"] });
 
 export default function DarkSection() {
   const section = useRef<HTMLDivElement>(null);
@@ -21,10 +18,10 @@ export default function DarkSection() {
   });
   const { scrollYProgress: endScrollYProgress } = useScroll({
     target: section,
-    offset: ["110% end", "end start"],
+    offset: ["80% end", "end start"],
   });
 
-  const y = useTransform(startScrollYProgress, [0, 0.3], [0, -100]);
+  const y = useTransform(startScrollYProgress, [0, 0.3], [0, -150]);
   const scale = useTransform(endScrollYProgress, [0, 1], [1, 0.95]);
 
   return (

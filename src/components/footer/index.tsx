@@ -1,14 +1,13 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { smooth } from "~/lib/constants/cubic-bezier";
 import { social_links } from "~/lib/constants/links";
 
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
-import ANRI from "~public/logo/ANRI.svg";
+
 import LinkAnimation from "../animations/animation-link";
 
 export default function Footer() {
@@ -18,7 +17,7 @@ export default function Footer() {
     offset: ["start end", "end end"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-50dvh", "0dvh"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-30dvh", "0dvh"]);
 
   return (
     <motion.footer
@@ -32,8 +31,8 @@ export default function Footer() {
       >
         <div className="flex flex-col">
           <span className="opacity-60">Say hi:</span>
-          <Link href="mailto:mr.anriko29@gmail.com" className="group">
-            <LinkAnimation>mr.anriko29@gmail.com</LinkAnimation>
+          <Link href="mailto:anri.vachnadze@icloud.com" className="group">
+            <LinkAnimation>anri.vachnadze@icloud.com</LinkAnimation>
           </Link>
         </div>
         <div className="flex gap-x-2">
@@ -51,17 +50,12 @@ export default function Footer() {
             key={x}
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
-            transition={{ duration: 1, ease: smooth, delay: 0.05 * x + 1 }}
+            transition={{ duration: 1, ease: smooth, delay: 0.05 * x + 0.5 }}
             viewport={{ once: true }}
             className="border my-3 md:my-4"
           />
         );
       })}
-      <Image
-        src={ANRI}
-        alt="ANRI"
-        className="w-full p-4 mix-blend-difference"
-      />
     </motion.footer>
   );
 }
