@@ -4,10 +4,10 @@ import { Projects } from "~/components/projects";
 
 export default function HomePage() {
   return (
-    <main>
+    <section className="flex flex-col gap-8 pb-8 lg:gap-40">
         <About />
         <Experience />
         <Projects />
-    </main>
+    </section>
   );
 }
