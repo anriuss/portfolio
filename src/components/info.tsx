@@ -36,7 +36,7 @@ const socials = [
 
 export const Info = () => {
 	return (
-		<section className="flex w-full flex-col justify-between gap-8 max-lg:pb-8 lg:sticky lg:top-0 lg:h-[calc(100vh-64px)]">
+		<section className="flex w-full flex-col justify-between gap-8 max-lg:py-8 lg:sticky lg:top-8 lg:h-[calc(100vh-64px)]">
 			<div>
 				<h1 className="font-bold text-4xl">Anri Vachnadze</h1>
 				<h2>Software Engineer</h2>

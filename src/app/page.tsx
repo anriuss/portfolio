@@ -4,7 +4,7 @@ import { Projects } from "~/components/projects";
 
 export default function HomePage() {
   return (
-    <section className="flex flex-col gap-8 pb-8 lg:gap-40">
+    <section className="flex flex-col gap-8 py-12 lg:gap-40">
         <About />
         <Experience />
         <Projects />

@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import ColorBends from "~/components/color-bends";
 import { Info } from "~/components/info";
+import Lenis from "~/components/lenis";
 
 export const metadata: Metadata = {
 	title: "Anri Vachnadze",
@@ -65,10 +66,12 @@ export default function RootLayout({
 				<div className="fixed inset-0 -z-10">
 					<ColorBends className="h-full w-full" />
 				</div>
-				<main className="relative z-10 grid max-h-screen overflow-y-auto p-8 text-stone-100 lg:grid-cols-2">
-					<Info />
-					{children}
-				</main>
+				<Lenis>
+					<main className="relative z-10 grid min-h-screen p-8 text-stone-100 lg:grid-cols-2">
+						<Info />
+						{children}
+					</main>
+				</Lenis>
 			</body>
 		</html>
 	);
