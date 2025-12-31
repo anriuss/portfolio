@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 	// icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const panchang = localFont({
+export const panchang = localFont({
 	src: [
 		{
 			path: "../../public/font/Panchang-Extralight.woff2",
