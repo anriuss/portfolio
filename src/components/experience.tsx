@@ -1,5 +1,15 @@
 import { Badge } from "./badge";
 
+const formatDate = (dateString: string): string => {
+	if (dateString === "Present") return "Present";
+	const date = new Date(dateString);
+	const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	const month = months[date.getMonth()];
+	const day = date.getDate();
+	const year = date.getFullYear();
+	return `${month} ${day}, ${year}`;
+};
+
 const experience = [
 	{
 		company: "Educate",
@@ -65,33 +75,23 @@ export const Experience = () => {
 				<div className="mb-24 flex gap-4" key={item.company}>
 					<div className="flex min-w-40 flex-col justify-between">
 						<p className="text-white/80 text-xs">
-							<span className="whitespace-nowrap">{new Date(item.date_started).toLocaleDateString("en-US", {
-								month: "short",
-								day: "numeric",
-								year: "numeric",
-							})}</span>{" "}
+							<span className="whitespace-nowrap">{formatDate(item.date_started)}</span>{" "}
 							-{" "}
-							<span className="whitespace-nowrap">{item.date_ended === "Present"
-								? item.date_ended
-								: new Date(item.date_ended).toLocaleDateString("en-US", {
-										month: "short",
-										day: "numeric",
-										year: "numeric",
-									})}</span>
+							<span className="whitespace-nowrap">{formatDate(item.date_ended)}</span>
 						</p>
 
-						<p className="text-white/80 text-xs">{item.location}</p>
+						<span className="text-white/80 text-xs">{item.location}</span>
 					</div>
 					<div className="flex flex-col gap-4">
 						<h3 className="font-semibold text-2xl">{item.company}</h3>
 						<p className="-mt-2 font-medium text-xl">{item.title}</p>
-						<p className="my-4 space-y-4 text-sm text-white/80">
+						<ul className="my-4 space-y-4 text-sm text-white/80">
 							{item.description.map((description) => (
 								<li className="ml-3 list-disc" key={description}>
 									{description}
 								</li>
 							))}
-						</p>
+						</ul>
 						<div className="flex flex-wrap gap-2">
 							{item.skills.map((skill) => (
 								<Badge key={skill}>{skill}</Badge>
